@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"> <!-- Certifique-se de que o namespace 'app' esteja aqui -->
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/characterImage"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/characterName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/characterImage"
+                android:layout_marginStart="8dp"
+                android:text="Character Name"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/characterGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/characterName"
+                android:layout_toEndOf="@id/characterImage"
+                android:layout_marginStart="8dp"
+                android:text="Avengers" />
+
+            <TextView
+                android:id="@+id/characterYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/characterGroup"
+                android:layout_toEndOf="@id/characterImage"
+                android:layout_marginStart="8dp"
+                android:text="1941" />
+
+            <TextView
+                android:id="@+id/characterCreator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/characterYear"
+                android:layout_toEndOf="@id/characterImage"
+                android:layout_marginStart="8dp"
+                android:text="Joe Simon" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

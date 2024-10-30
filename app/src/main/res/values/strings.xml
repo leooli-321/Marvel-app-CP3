@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Mavel App</string>
+    <string name="character_image">Texto padrão para a imagem do personagem</string> <!-- Adicione sua string aqui -->
+</resources>
