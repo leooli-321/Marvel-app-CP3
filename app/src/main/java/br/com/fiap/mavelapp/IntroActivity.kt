@@ -17,6 +17,6 @@ class IntroActivity : AppCompatActivity() {
             val intent = Intent(this@IntroActivity, MainActivity::class.java)
             startActivity(intent)
             finish()  // Fecha a IntroActivity para que não volte a ela ao pressionar 'Voltar'
-        }, 3000) // Tempo em milissegundos (3 segundos)
+        }, 2000) // Tempo em milissegundos (2 segundos)
     }
 }

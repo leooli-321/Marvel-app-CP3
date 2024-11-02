@@ -1,32 +1,39 @@
 package br.com.fiap.mavelapp
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.ImageView
-import android.widget.TextView
+import br.com.fiap.mavelapp.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityDetailBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail)
+        binding = ActivityDetailBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        // Referências aos elementos da UI
-        val characterImageView = findViewById<ImageView>(R.id.characterImageView)
-        val characterNameTextView = findViewById<TextView>(R.id.characterNameTextView)
-        val characterDetailsTextView = findViewById<TextView>(R.id.characterDetailsTextView)
-        val characterDescriptionTextView = findViewById<TextView>(R.id.characterDescriptionTextView)
+        // Receber dados do Intent
+        val imageResId = intent.getIntExtra("imageResId", 0)
+        val characterName = intent.getStringExtra("characterName") ?: "Nome não disponível"
+        val characterDetails = intent.getStringExtra("characterDetails") ?: "Detalhes não disponíveis"
+        val characterDescription = intent.getStringExtra("characterDescription") ?: "Descrição não disponível"
 
-        // Recebendo dados da Intent com verificação de valores padrão
-        val imageResId = intent.getIntExtra("imageResId", android.R.drawable.ic_menu_gallery) // Usando um recurso padrão do Android
-        val name = intent.getStringExtra("characterName") ?: "Nome não disponível"
-        val details = intent.getStringExtra("characterDetails") ?: "Detalhes não disponíveis"
-        val description = intent.getStringExtra("characterDescription") ?: "Descrição não disponível"
 
-        // Definindo os dados na UI
-        characterImageView.setImageResource(imageResId)
-        characterNameTextView.text = name
-        characterDetailsTextView.text = details
-        characterDescriptionTextView.text = description
+        Log.d("DetailActivity", "imageResId: $imageResId")
+        Log.d("DetailActivity", "characterName: $characterName")
+        Log.d("DetailActivity", "characterDetails: $characterDetails")
+        Log.d("DetailActivity", "characterDescription: $characterDescription")
+
+        // Preencher os views com os dados recebidos
+        binding.characterImageView.setImageResource(imageResId)
+        binding.characterNameTextView.text = characterName
+        binding.characterDetailsTextView.text = characterDetails
+        binding.characterDescriptionTextView.text = characterDescription
+
+        binding.backButton.setOnClickListener {
+            finish()
+        }
     }
 }

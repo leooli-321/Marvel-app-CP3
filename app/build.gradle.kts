@@ -8,7 +8,8 @@ android {
     compileSdk = 34
 
     buildFeatures {
-        dataBinding = true
+        viewBinding = true  // Habilite o View Binding aqui
+        dataBinding = true  // Habilite o Data Binding aqui
     }
 
     defaultConfig {
@@ -52,3 +53,4 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+6
